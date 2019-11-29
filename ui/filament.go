@@ -134,9 +134,8 @@ func (m *filamentPanel) createUnloadButton() gtk.IWidget {
 	return MustButtonImageStyle("Unload", "extrude.svg", "color2", func() {
 		cmd := &octoprint.CommandRequest{}
 		cmd.Commands = []string{
-			"G91",
-			fmt.Sprintf("G0 E-%.1f F5000", length),
-			"G90",
+			"M109 S215",
+			"M702",
 		}
 
 		Logger.Info("Sending filament unload request")
