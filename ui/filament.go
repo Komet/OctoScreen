@@ -125,12 +125,6 @@ func (m *filamentPanel) createLoadButton() gtk.IWidget {
 }
 
 func (m *filamentPanel) createUnloadButton() gtk.IWidget {
-	length := 800.0
-
-	if m.UI.Settings != nil {
-		length = m.UI.Settings.FilamentOutLength
-	}
-
 	return MustButtonImageStyle("Unload", "extrude.svg", "color2", func() {
 		cmd := &octoprint.CommandRequest{}
 		cmd.Commands = []string{
